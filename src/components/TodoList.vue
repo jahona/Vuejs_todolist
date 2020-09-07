@@ -23,7 +23,7 @@ export default {
 }
 </script>
 
-<style ㄴ채ㅔㄷㅇ>
+<style scoped>
   ul {
     list-style-type: none;
     padding-left: 0px;
@@ -59,6 +59,6 @@ export default {
 
   .list-enter, .list-leave-to {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY
   }
 </style>
