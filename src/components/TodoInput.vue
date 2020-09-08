@@ -6,7 +6,7 @@
       <i class="addBtn fas fa-plus" aria-hidden="true"></i>
     </span>
 
-    <modal v-if="showModal" @close="showModal = false">
+    <modal v-if="showModal">
       <!-- Modal Header -->
       <h3 slot="header">경고</h3>
 
@@ -37,8 +37,6 @@ export default {
   },
   methods: {
     addTodo() {
-      console.log(this.newTodoItem);
-
       if (this.newTodoItem !== "") {
         var value = this.newTodoItem && this.newTodoItem.trim();
         this.$emit('addTodo', value);
@@ -49,6 +47,9 @@ export default {
     },
     clearInput() {
       this.newTodoItem = '';
+    },
+    test() {
+      console.log('test');
     }
   },
   components: {
@@ -66,9 +67,11 @@ export default {
     height: 50px;
     line-height: 50px;
     border-radius: 5px;
+    margin: 0 5em; 
   }
   .inputBox input {
     border-style: none;
+    width: 80%;
     font-size: 0.9rem;
   }
   .addContainer {
