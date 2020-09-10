@@ -1,14 +1,12 @@
 <template>
-    <div class="AppContainer">
-        <TodoHeader v-bind:title="title"></TodoHeader>
-        <TodoNav></TodoNav>
+    <div class="intro">
+        <h3>By jahona</h3>
+
+        <h3>This is my Vue.js project</h3>
     </div>
 </template>
 
 <script>
-import TodoHeader from './TodoHeader.vue'
-import TodoNav from './TodoNav.vue'
-
 export default {
     data() {
         return {
@@ -16,9 +14,8 @@ export default {
         }
     },
     components: {
-    'TodoHeader': TodoHeader,
-    'TodoNav': TodoNav
-  }
+    
+    }
 }
 </script>
 

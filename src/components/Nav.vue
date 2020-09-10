@@ -24,7 +24,7 @@ export default {
   .nav__layout {
     height: 3rem;
     width: auto;
-    margin-bottom: 2em;
+    margin-bottom: 3em;
   }
 
   .nav__layout ul {

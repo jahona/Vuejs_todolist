@@ -1,27 +1,32 @@
 <template>
-    <div class="AppContainer">
-        <TodoHeader v-bind:title="title"></TodoHeader>
-        <TodoNav></TodoNav>
+    <div class="home">
+        <h3>My Recently Posted Item</h3>
+
+        <span on:>{{ item }}</span>
     </div>
 </template>
 
 <script>
-import TodoHeader from './TodoHeader.vue'
-import TodoNav from './TodoNav.vue'
+import { EventBus } from "./common/EventBus.vue";
 
-export default {
+export default {    
     data() {
         return {
-            title: 'Home'
+            title: 'Home',
+            item: 'content'
         }
     },
+    created() {
+        console.log('Home created');
+    },
     components: {
-    'TodoHeader': TodoHeader,
-    'TodoNav': TodoNav
-  }
+
+    }
 }
 </script>
 
 <style>
-  
+  div .home {
+      
+  }
 </style>

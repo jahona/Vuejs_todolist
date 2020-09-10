@@ -1,7 +1,5 @@
 <template>
   <div class="AppContainer">
-    <TodoHeader v-bind:title="title"></TodoHeader>
-    <TodoNav></TodoNav>
     <TodoInput v-on:addTodo="createItem"></TodoInput>
     <TodoList v-bind:propsdata="items" @removeTodo="deleteItem" @updateTodo="updateItem"></TodoList>
     <TodoFooter v-on:removeAll="clearAll"></TodoFooter>
@@ -9,42 +7,50 @@
 </template>
 
 <script>
-import TodoHeader from './TodoHeader.vue'
-import TodoNav from './TodoNav.vue'
 import TodoInput from './TodoInput.vue'
 import TodoList from './TodoList.vue'
 import TodoFooter from './TodoFooter.vue'
+import { EventBus } from "./common/EventBus.vue";
+
+/*
+  컴포넌트 간에 이동시, 등록한 items 가 삭제되지 않도록 static 으로 선언
+*/
+var items = [];
 
 export default {
   data() {
     return {
       title: 'Todo App',
-      items: []
+      items: items
     }
   },
+  // data: {
+  //     title: 'Todo App',
+  //     items: []
+  // },
   beforeCreate() {
-    console.log('beforeCrate');
+    console.log('TodoApp', 'beforeCrate');
   },
   created() {
-    console.log('created');
+    console.log('TodoApp', 'created');
   },
   beforeMount() {
-    console.log('beforeMount');
+    console.log('TodoApp', 'beforeMount');
   },
   mounted() {
-    console.log('mounted');
+    console.log('TodoApp', 'mounted');
   },
   beforeUpdate() {
-    console.log('beforeUpdate');
+    console.log('TodoApp', 'beforeUpdate');
   },
   updated() {
-    console.log('updated');
+    console.log('TodoApp', 'updated');
   },
   beforeDestroy() {
-    console.log('beforeDestroy');
+    console.log('TodoApp', 'beforeDestroy');
   },
   desroyed() {
-    console.log('desroyed');
+    console.log('TodoApp', 'desroyed');
   },
   methods: {
     createItem(item) {
@@ -52,7 +58,7 @@ export default {
       this.items.push(item);
     },
     updateItem(item, index) {
-      console.log('item:', item, 'index:', index);
+      console.debug('item:', item, 'index:', index);
       this.items[index] = item;
     },
     deleteItem(index) {
@@ -61,11 +67,18 @@ export default {
     },
     clearAll() {
       this.items = [];
+    },
+    getRecentItem() {
+      console.log('TodoApp:', 'getRecentItem');
+
+      if (this.items.length < 1) {
+        return null;
+      }
+
+      return this.items[this.items.length - 1];
     }
   },
   components: {
-    'TodoHeader': TodoHeader,
-    'TodoNav': TodoNav,
     'TodoInput': TodoInput,
     'TodoList': TodoList,
     'TodoFooter': TodoFooter
