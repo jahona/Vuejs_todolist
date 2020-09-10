@@ -1,12 +1,17 @@
 <template>
   <header>
-    <h1>ToDo it!</h1>
+    <h1> {{ title }} </h1>
   </header>
 </template>
 
 <script>
 export default {
-  
+  props: ['title'],
+  data() {
+    return {
+      title: ''
+    }
+  },
 }
 </script>
 

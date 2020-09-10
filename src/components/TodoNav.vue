@@ -5,7 +5,7 @@
         <router-link to="/home">Go Home</router-link>
       </li>
       <li class="nav__menu--link">
-        <router-link to="my-todolist">My ToDo List</router-link>
+        <router-link to="/">My ToDo List</router-link>
       </li>
       <li class="nav__menu--link">
         <router-link to="/intro">Introduce</router-link>
