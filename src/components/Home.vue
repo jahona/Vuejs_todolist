@@ -2,7 +2,9 @@
     <div class="home">
         <h3>My Recently Posted Item</h3>
 
-        <span on:>{{ item }}</span>
+        <!-- TODO: 최근 데이터 가져오기 -->
+        <p v-if="count>0">{{ item }}</p>
+        <p>현재 등록된 ToDO 개수 : {{ count }}</p>
     </div>
 </template>
 
@@ -21,6 +23,11 @@ export default {
     },
     components: {
 
+    },
+    computed: {
+        count() {
+            return this.$store.state.count
+        }
     }
 }
 </script>
