@@ -10,11 +10,36 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
-    recentItem: ''
+    recentItem: '',
+    count: 0
   },
   mutations: {
     updateRecentItem(state, item) {
       state.recentItem = item;
+    },
+    syncPrint_test(state, ref) {
+      state.count++;
+      console.log('[%s] syncPrint_test func is called from [%s]', String(state.count), ref);
+    }
+  },
+  actions: {
+    logging_middle({ commit }, data) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          this.commit('syncPrint_test', data + '-> logging_middle action');
+          resolve();
+        }, 1000)
+      })
+    },
+    logging({ dispatch, commit, state }, data) {
+      setTimeout(() => {
+        // commit('syncPrint_test', 'logging actions');
+
+        dispatch('logging_middle', 'logging action')
+        .then(() => {
+          commit('syncPrint_test', 'logging actions');
+        })
+      }, 2000);  
     }
   }
 });

@@ -2,7 +2,6 @@
     <div class="home">
         <h3>My Recently Posted Item</h3>
 
-        <!-- TODO: 최근 데이터 가져오기 -->
         <div class="Home__main">
             <p v-if="recentItem !== ''" class="Home__main--title"><최근 추가된 할 일></p>
             <p v-if="recentItem !== ''" class="Home__main--content">{{ recentItem }}</p>

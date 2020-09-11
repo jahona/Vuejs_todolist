@@ -57,6 +57,7 @@ export default {
       console.debug('push:', item);
       this.items.push(item);
       this.$store.commit('updateRecentItem', item);
+      this.$store.dispatch('logging', 'add:' + item);
     },
     updateItem(item, index) {
       console.debug('item:', item, 'index:', index);
