@@ -56,6 +56,7 @@ export default {
     createItem(item) {
       console.debug('push:', item);
       this.items.push(item);
+      this.$store.commit('updateRecentItem', item);
     },
     updateItem(item, index) {
       console.debug('item:', item, 'index:', index);
@@ -64,6 +65,11 @@ export default {
     deleteItem(index) {
       console.debug('pop:', this.items[index]);
       this.items.splice(index, 1);
+      if (this.items.length > 0) {
+        this.$store.commit('updateRecentItem', this.items[this.items.length - 1]);    
+      } else {
+        this.$store.commit('updateRecentItem', '');
+      }
     },
     clearAll() {
       this.items = [];
@@ -76,7 +82,7 @@ export default {
       }
 
       return this.items[this.items.length - 1];
-    }
+    },
   },
   components: {
     'TodoInput': TodoInput,

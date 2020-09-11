@@ -10,11 +10,11 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
-    count: 0
+    recentItem: ''
   },
   mutations: {
-    increment(state) {
-      state.count++;
+    updateRecentItem(state, item) {
+      state.recentItem = item;
     }
   }
 });
