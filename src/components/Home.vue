@@ -21,14 +21,14 @@ export default {
     },
     created() {
         console.log('Home created');
-        console.log('store.state.recentItem:', this.$store.state.recentItem);
+        console.log('store.state.recentItem:', this.$store.state.todoItem.recentItem);
     },
     components: {
 
     },
     computed: {
         recentItem() {
-            return this.$store.state.recentItem
+            return this.$store.state.todoItem.recentItem
         }
     }
 }

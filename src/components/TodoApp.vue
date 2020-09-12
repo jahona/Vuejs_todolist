@@ -56,8 +56,8 @@ export default {
     createItem(item) {
       console.debug('push:', item);
       this.items.push(item);
-      this.$store.commit('updateRecentItem', item);
-      this.$store.dispatch('logging', 'add:' + item);
+      this.$store.commit('todoItem/updateRecentItem', item);
+      this.$store.dispatch('todoItem/logging', 'add:' + item);
     },
     updateItem(item, index) {
       console.debug('item:', item, 'index:', index);
@@ -67,9 +67,9 @@ export default {
       console.debug('pop:', this.items[index]);
       this.items.splice(index, 1);
       if (this.items.length > 0) {
-        this.$store.commit('updateRecentItem', this.items[this.items.length - 1]);    
+        this.$store.commit('todoItem/updateRecentItem', this.items[this.items.length - 1]);    
       } else {
-        this.$store.commit('updateRecentItem', '');
+        this.$store.commit('todoItem/updateRecentItem', '');
       }
     },
     clearAll() {
